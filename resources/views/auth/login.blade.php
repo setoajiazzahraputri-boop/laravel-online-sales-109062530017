@@ -1,26 +1,3 @@
 @extends('layouts.app')
-
-@section('title', 'Masuk · Ruang Belanja')
-
-@section('content')
-<div class="card">
-    <div class="eyebrow">SELAMAT DATANG KEMBALI</div>
-    <h1>Masuk ke akunmu</h1>
-    <p class="subtitle">Lanjutkan belanja dan pantau pesanan dengan mudah.</p>
-
-    <form method="POST" action="{{ url('/login') }}">
-        @csrf
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn">Masuk</button>
-    </form>
-
-    <p class="switch">Belum punya akun? <a href="{{ url('/register') }}">Daftar di sini</a></p>
-</div>
-@endsection
+@section('title','Masuk')
+@section('content')<div class="card auth-card"><span class="eyebrow">SELAMAT DATANG KEMBALI</span><h1>Masuk ke akunmu</h1><p class="muted" style="text-align:left">Lanjutkan belanja dan pantau pesanan dengan mudah.</p><form method="POST" action="{{ route('login.store') }}">@csrf<label>Email<input type="email" name="email" value="{{ old('email') }}" autocomplete="username" required autofocus></label><label>Password<input type="password" name="password" autocomplete="current-password" required></label><button class="btn">Masuk</button></form><p class="muted" style="margin-top:20px">Belum punya akun? <a href="{{ route('register') }}"><strong>Daftar di sini</strong></a></p></div>@endsection
